@@ -1,9 +1,9 @@
 # Learn variables, print, input
-first_name_str = first_name
-last_name_str = last_name
+first_name_str = "John"
+last_name_str = "Doe"
 shoe_size = 8
 height = "5'7\""
-age = 500
+age = 50
 
 print(
     f"The details I received : Your First Name : {first_name_str}, Your Last Name: {last_name_str}, Your shoe size: {shoe_size}, Your height: {height}, Your age: {age}")
