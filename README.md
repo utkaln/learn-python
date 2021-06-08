@@ -7,3 +7,7 @@ I use Visual Studio Code to practice python
 
 
 ### Module 2 - Lists, Dictionary, List Comprehension, Conditional List Comprehension
+
+
+### Module 3 - Functions, Libraries, Third party libraries
+#### pypi.org for third party libraries 
