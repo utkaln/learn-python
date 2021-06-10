@@ -11,3 +11,12 @@ I use Visual Studio Code to practice python
 
 ### Module 3 - Functions, Libraries, Third party libraries
 #### pypi.org for third party libraries 
+
+
+### Notes about Jupyter Follow Here
+
+
+
+
+
+
