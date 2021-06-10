@@ -13,7 +13,9 @@ I use Visual Studio Code to practice python
 #### pypi.org for third party libraries 
 
 
-### Notes about Jupyter Follow Here
+### Notes about Jupyter 
+[Follow Here](https://github.com/utkaln/learn-python/blob/master/Jupiter-Pandas.md)
+
 
 
 
