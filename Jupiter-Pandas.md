@@ -86,3 +86,9 @@ Assign new column names to column
 df_members.columns = new_col_names
 ```
 
+#### Convert a column to date time
+```python
+df_members.member_since = pd.to_datetime(df_members.member_since)
+```
+
+
