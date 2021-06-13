@@ -91,4 +91,32 @@ df_members.columns = new_col_names
 df_members.member_since = pd.to_datetime(df_members.member_since)
 ```
 
+### Getting the statistical part out of data and explore
+#### value_count() provides count of each item from the dataframe, also provides a list of values from the row data
+user (normalize = True) parameter in value_count() to show value as percentage
 
+```python
+# show value as numbers
+df_members.TYPE.value_counts()
+
+# show value as percent
+df_members.TYPE.value_counts(normalize = True)
+
+# to convert as dataframe
+df_members.TYPE.value_counts(normalize = True).reset_index()
+```
+
+### Plot Graphs
+```python
+import matplotlib.pyplot as plt
+# first convert to dataframe then plot
+df_members.TYPE.value_counts(normalize = True).plot(x = 'index', y = 'TYPE', kind = "bar")
+
+# plot from the series without converting to dataframe
+df_orders.TYPE.value_counts(normalize = True).reset_index().plot(x = 'index', y = 'TYPE', kind = "bar")
+```
+
+### Find statistical data using describe()
+```python
+df_members.MEDIAN_AGE.describe()
+```
