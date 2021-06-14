@@ -76,6 +76,23 @@ import pandas as pd
 df_members = pd.read_excel("FileName.xlsx")
 ```
 
+#### Write to file 
+```python
+df_members.to_csv("FileName.csv")
+
+# write to csv by ignoring the index column data
+df_members.to_csv('census_new.csv', index = False)
+
+```
+#### Save the dataframe as pickle file to directly load as dataframe along with all metadata
+```python
+df_members.to_pickle('member_new.pickle')
+
+# read a pickle file and load to dataframe
+df_member_new = pd.read_pickle('member_new.pickle')
+
+```
+
 ### Customize column names to make them concise or pretty
 First define a list of column names that you wish to have
 ```python
