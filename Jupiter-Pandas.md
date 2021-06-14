@@ -179,3 +179,20 @@ df_members.CITY.isnull().value_counts(normalize = True)
 df_members.CITY.fillna('No City Name').head()
 
 ```
+
+### Manipulate Date type objects using dt
+
+```python
+# returns the hour field from the data series
+df_members.MEMBER_SINCE.dt.hour.head()
+
+# find what day of the week was the date
+df_members.MEMBER_SINCE.dt.weekeday.head()
+
+# find graphical trend of dates over the week
+df_members.MEMBER_SINCE.dt.weekday.value_counts().plot(kind = 'bar')
+
+# suppress the timestamp from the date using normalize()
+df_members.MEMBER_SINCE.dt.normalize().head()
+```
+
