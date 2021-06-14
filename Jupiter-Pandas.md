@@ -143,7 +143,9 @@ df_members.MEDIAN_AGE.describe()
 df_members.MEDIAN_AGE.plot(kind = 'hist', bins = 50)
 ```
 
-Additionally most math operations can be performed within columns using pandas
+### Useful Opearations on Series Data in the dataframe
+most math operations can be performed within columns using pandas
+
 ```python
 # show number in thousands
 df_members.MEDIAN_INCOME / 1000
@@ -162,5 +164,18 @@ df_members.AGE >= 18.head()
 
 # find matches from a list of values
 df_members.CITY.isin(['New York', 'San Jose']).sum()
-```
 
+# find missing values using isnull()
+df_members.CITY.isnull().head()
+
+# find proportion of data with null value
+# Approach 1 - count the number of null items, divide by total number of rows
+df_members.CITY.isnull().sum() / df_members.shape[0]
+
+# Approach 2 - use value counts to find percentage of null as well as not null categories
+df_members.CITY.isnull().value_counts(normalize = True)
+
+# fill in null and na values with custom text using fillna('new_string')
+df_members.CITY.fillna('No City Name').head()
+
+```
