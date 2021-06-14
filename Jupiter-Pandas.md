@@ -120,3 +120,25 @@ df_orders.TYPE.value_counts(normalize = True).reset_index().plot(x = 'index', y 
 ```python
 df_members.MEDIAN_AGE.describe()
 ```
+
+### Use visualization such as histogram to explore statistics
+```python
+df_members.MEDIAN_AGE.plot(kind = 'hist', bins = 50)
+```
+
+Additionally most math operations can be performed within columns using pandas
+```python
+# show number in thousands
+df_members.MEDIAN_INCOME / 1000
+
+# Conditional check
+df_members.AGE >= 18.head()
+
+# combine conditional statements
+((df_members.AGE >= 18) & (df_members.GENDER == 'Female')).head()
+
+# use single & for AND and single | for OR
+
+# other statistical options to use on columns - sum(), max(), min(), mean(), std(), median()
+```
+
