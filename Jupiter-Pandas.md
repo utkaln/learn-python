@@ -140,5 +140,10 @@ df_members.AGE >= 18.head()
 # use single & for AND and single | for OR
 
 # other statistical options to use on columns - sum(), max(), min(), mean(), std(), median()
+# The boolean variables can be aggregated simply because pandas counts True = 1 and False = 0
+((df_members.AGE >= 18) & (df_members.GENDER == 'Female')).sum()
+
+# find matches from a list of values
+df_members.CITY.isin(['New York', 'San Jose']).sum()
 ```
 
