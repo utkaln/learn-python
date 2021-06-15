@@ -194,5 +194,26 @@ df_members.MEMBER_SINCE.dt.weekday.value_counts().plot(kind = 'bar')
 
 # suppress the timestamp from the date using normalize()
 df_members.MEMBER_SINCE.dt.normalize().head()
+
+# compare data against a date sent in string format only in case of less than or equal to
+(df_members.MEMBER_SINCE >= '2021-01-01').sum()
+
+# compare data for equal case (the above won't work as the string would assume 00:00:00 default timestamp to match
+# to compare equally first normalize using dt function to remove time part out of the date component
+(df_members.MEMBER_SINCE.dt.normalize() == '2021-01-01').sum()
+
+# using .apply(function_name) is discouraged, as it has a huge performance impact
+
+```
+
+### Filter dataframe based on condition
+```python
+# the index numbers are from the original dataframe hence only those corresponding to filtered data is shown
+df_members[df_members.MEMBER_SINCE >= '2021-01-01'].head()
+
+# to create new index add the following to it
+df_members[df_members.MEMBER_SINCE >= '2021-01-01'].reset_index(drop = True).head()
+
+Note: Filtering dataframe does not modify the original dataframe 
 ```
 
