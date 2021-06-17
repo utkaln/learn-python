@@ -217,3 +217,31 @@ df_members[df_members.MEMBER_SINCE >= '2021-01-01'].reset_index(drop = True).hea
 Note: Filtering dataframe does not modify the original dataframe 
 ```
 
+## Combine different types of data type 
+### Combine strings with integer 
+```python 
+
+("Name of the new member is : " + df_members.FIRST_NAME + " and number of pets with him are: " + df_members.PET_COUNT.astype(str)).head()
+
+```
+
+## Complex string functions
+#### useful functon is .str
+```python
+# str.upper() to make UPPER case sentence, also available lower etc.
+df_members.FIRST_NAME.str.upper()
+
+# str.contains('string') to find True or False in a string
+df_members.FIRST_NAME.str.contains('Utkal')
+
+# str[1:4] for trimming string 
+df_members.FIRST_NAME.str[1:4]
+
+# str.split() to convert string to a list
+df_members.ADDRESS.str.split(' ').head()
+
+# split and show specific elements
+df_members.ADDRESS.str.split(' ').str[-2:].head()
+```
+
+
