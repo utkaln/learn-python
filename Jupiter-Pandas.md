@@ -348,7 +348,26 @@ pd.merge(table_part_1, table_part_2, on = 'COLUMN_NAME', how = 'left')
 pd.merge(table_part_1, table_part_2, on = 'COLUMN_NAME', how = 'right')
 
 ```
+#### Rename columns to have matching column names for merge
+```python
+# Pay attention to the syntax: rename() is a function that accepts parameter columns with names provided as strings in curly braces
+pd.merge(table_part_1, table_part_2.rename(columns = {'OLD_COL_1':'NEW_COL_1', 'OLD_COL_2': 'NEW_COL_2'}), on = 'NEW_COL_1', how = 'left')
+
+```
+
+#### Get only selective columns after merge (Skip columns not required)
+```python
+# Pay attention to the syntax: two square brackets needed to specify column names to be selected
+pd.merge(table_part_1, table_part_2[['ITEM','COLUMN_NAME']], on = 'COLUMN_NAME', how = 'left')
+```
 
 
+#### Merge columns with non-unique values
+> Unique values create one-to-one situation, non-unique values create one-to-many or many-to-one or many-to-many
 
+```python
+# use validate parameter in the merge() method to validate duplicated fields
+pd.merge(table_part_1, table_part_2[['ITEM','COLUMN_NAME']], on = 'COLUMN_NAME', how = 'left', validate='many_to_one')
+
+```
 
