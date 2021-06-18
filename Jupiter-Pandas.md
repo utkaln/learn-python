@@ -33,6 +33,8 @@ df_members.head()
 ```python
 df_members.shape
 ```
+
+
 #### describe column names of the collection
 ```python
 df_members.columns
@@ -248,4 +250,23 @@ df_members.ADDRESS.str.split(' ').str[-2:].str.join(" ").head()
 
 ```
 
+## Sorting Data
+### using sort_values for any column other than index 
+
+```python
+# displays value sorted, but does not change the index
+df_members.sort_values('ZIPCODE')
+
+# to change index use the following
+df_members = df_members.sort_values('ZIPCODE').reset_index(drop = True)
+
+# to sort by multiple fields use as a list instead of a string
+df_members = df_members.sort_values(['ZIPCODE', 'lAST_NAME']).reset_index(drop = True)
+
+# to sort by descending order add ascending=False param to sort_values()
+df_members = df_members.sort_values(['ZIPCODE', 'lAST_NAME'], ascending=False).reset_index(drop = True)
+
+# to sort by index use sort_index()
+df_members = df_members.sort_index()
+```
 
