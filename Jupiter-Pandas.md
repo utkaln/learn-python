@@ -242,6 +242,10 @@ df_members.ADDRESS.str.split(' ').head()
 
 # split and show specific elements
 df_members.ADDRESS.str.split(' ').str[-2:].head()
+
+# use join() to make a string out of the list
+df_members.ADDRESS.str.split(' ').str[-2:].str.join(" ").head()
+
 ```
 
 
