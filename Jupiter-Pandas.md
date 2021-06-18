@@ -328,3 +328,27 @@ df_members_copy = df_members.copy()
 df_members_copy = df_members_copy [df_members_copy.PHONE.notnull()]
 ```
 
+## Combine multiple datasets
+#### Union - Concat - two tables must have exactly same table names
+```python
+pd.concat([table_part_1, table_part_2]).reset_index(drop = True)
+```
+#### Inner join | Outer join | Left/ Right join
+```python
+# to filter data which is present in both left and right tables matched with column name provided
+pd.merge(table_part_1, table_part_2, on = 'COLUMN_NAME', how = 'inner')
+
+# to filter data which is present in either left or right tables matched with column name provided
+pd.merge(table_part_1, table_part_2, on = 'COLUMN_NAME', how = 'outer')
+
+# to filter data which is present in left matched with column name provided
+pd.merge(table_part_1, table_part_2, on = 'COLUMN_NAME', how = 'left')
+
+# to filter data which is present in right matched with column name provided
+pd.merge(table_part_1, table_part_2, on = 'COLUMN_NAME', how = 'right')
+
+```
+
+
+
+
