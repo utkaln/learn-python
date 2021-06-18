@@ -24,6 +24,11 @@ df_members[['NAME', 'AGE', 'MEMBER_SINCE']]
 *  if exception is "...is not callable", then the () paranthesis are added when not necessary
 *  if exception is either "... bound method", or "... function object has no attribute" then we should have paranthesis but forgot
 
+### To find the duration of a query execution add
+```python
+%%time
+```
+
 #### First 5 rows of the dataframe use head()
 ```python
 df_members.head()
@@ -268,5 +273,58 @@ df_members = df_members.sort_values(['ZIPCODE', 'lAST_NAME'], ascending=False).r
 
 # to sort by index use sort_index()
 df_members = df_members.sort_index()
+```
+
+## Edit Data Frame
+### Add new column to dataframe
+```python
+# to create new column use column name with quotes and square bracket. .COL_NAME format does not work to create new column
+df_members['NEW_COL_NAME'] = (df_members.AGE > 17)
+
+# to remove a column use .drop(columns = 'NEW_COL_NAME'), use list to drop multiple columns
+df_members = df_members.drop(columns = 'NEW_COL_NAME')
+```
+
+### Modify part of the column
+```python
+# To edit column conditionally use .loc instead of just assigning values with filter conditions
+# If directly try to edit by assigning as is done while creating new column following error appears - SettingWithCopyWarning (avoid that)
+df_members.loc[df_members.AGE > 60, 'MEMBER_TYPE'] = 'Senior'
+```
+
+### Create a new data frame from the filtered values of existing dataframe
+```python
+# use .copy at the end to create an independent copy of existing dataframe, however prefer .loc over the approach
+new_members = df_members [df_members.AGE > 60].copy()
+
+```
+
+## Data Hygine checks
+#### Data is sensible, remove mistakes and replenish missing data
+
+### Identify Duplicate values in a field
+```python
+# return total number of duplicated values
+df_members.MEMBER_ID.duplicated().sum()
+
+# Check duplicates on multiple columns by creating a dataframe from a list of column names. Important: 2 square brackets - one for list, one to create new dataframe
+df_members[['MEMBER_ID','ZIPCODE']].duplicated().sum()
+```
+### Missing Values
+#### Missing values can be handled by either filling data or by ignoring the row with missing data
+
+### Fill data using fillna
+```python
+# replace missing value with a string using fillna(), first create a copy of the dataframe before manipulating missing fields
+df_members_copy = df_members.copy()
+df_members_copy['PHONE'] = df_members_copy.PHONE.fillna('No Phone')
+
+```
+
+### Drop rows in case of missing fields
+```python
+# use a copy of the dataframe first, then filter using notnull() to remove empty fields
+df_members_copy = df_members.copy()
+df_members_copy = df_members_copy [df_members_copy.PHONE.notnull()]
 ```
 
