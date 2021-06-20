@@ -371,3 +371,14 @@ pd.merge(table_part_1, table_part_2[['ITEM','COLUMN_NAME']], on = 'COLUMN_NAME',
 
 ```
 
+### Merge with multiple columns using for loop
+```python
+ITEM_LISTS = ['COLUMN1', 'COLUMN2', 'COLUMN3', 'COLUMN4']
+for item in item_list:
+    df_members = pd.merge(df_members, 
+                 df_items[['COLUMN1','COLUMN2']].rename(columns={'COLUMN1':item,'COLUMN2':f'{item}_NAME'}), 
+                 on= item, how='left', 
+                 validate='many_to_one')
+
+```
+ 
