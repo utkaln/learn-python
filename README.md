@@ -13,11 +13,11 @@ I use Visual Studio Code to practice python
 #### www.pypi.org for third party libraries 
 
 
-### Notes about Jupyter 
+### Module 4 - Working with Data using Jupyter and pandas 
 [Follow Here](https://github.com/utkaln/learn-python/blob/master/Jupiter-Pandas.md)
 
 
-### Webscrapping and working with API
+### Module 5 - Webscrapping and working with API
 > Resources
 > * www.alphavantage.co
 > * www.scrapy.org 
