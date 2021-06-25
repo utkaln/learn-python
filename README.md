@@ -22,6 +22,8 @@ I use Visual Studio Code to practice python
 > * www.alphavantage.co
 > * www.scrapy.org 
 
+(Read More)[web-api.md]
+
 
 
 
