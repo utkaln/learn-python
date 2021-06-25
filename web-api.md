@@ -28,3 +28,42 @@ ts = TimeSeries(key= alphavantage_api_key, output_format = 'pandas')
 data, meta_Data = ts.get_daily('AMZN', outputsize='full')
 
 ```
+### Web scraping
+#### Use beautiful soup to scrap a website and get data in a meaningful way
+
+```python
+# first import request package to deal with web requests
+import requests
+
+# import Beautiful Soup library that ships with Anaconda (No install of BS is required0
+from bs4 import BeautifulSoup
+
+response = requests.get('https://www.google.com')
+response.status_code
+response.text
+
+# Use BeautifulSoup to prettify the html scraped
+soup = BeautifulSoup(response.text)
+print(soup.prettify())
+
+# find all links from the webpage find() --> finds the first occurrence, find_all() --> finds all occurrences
+links = soup.find_all('a')
+
+# print the link names
+for link in links:
+    print(link.text)
+    
+# search for tag
+soup.find_all('a')
+
+# search for class
+soup.find_all(class_ = 'a')
+
+# search for both 
+soup.find_all('a', class_='class_name')
+
+# find specific elements within a tag by applying hierarchical calls of find method
+for link in links:
+        print(link.get('href'))
+
+```
