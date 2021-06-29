@@ -24,6 +24,8 @@ I use Visual Studio Code to practice python
 
 [Read More](https://github.com/utkaln/learn-python/blob/fe574e1cca4cf5292eb523bdbeebc38d02c0e6c7/web-api.md)
 
+[Example jupyter notebook](https://github.com/utkaln/learn-python/blob/34b1eb879b58d16230ba1f7b638c787ab2fcb486/example-web-scrap.ipynb)
+
 
 
 
