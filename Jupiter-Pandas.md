@@ -382,3 +382,9 @@ for item in item_list:
 
 ```
  
+
+### Usage of loc function to filter and change
+```python
+df_members.loc[df_members.YEAR > 5, 'MEMBER_TYPE'] = 'Life Member'
+```
+
