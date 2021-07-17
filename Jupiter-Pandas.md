@@ -383,8 +383,20 @@ for item in item_list:
 ```
  
 
-### Usage of loc function to filter and change
+### Use loc function to filter and change
 ```python
 df_members.loc[df_members.YEAR > 5, 'MEMBER_TYPE'] = 'Life Member'
 ```
 
+### Use groupby to aggregate data
+```python
+# groupby single column
+df_members.groupby('MEMBER_TYPE').YEAR.mean()
+
+# represent at data frame by adding reset_index() at the end of the series
+df_members.groupby('MEMBER_TYPE').YEAR.mean().reset_index()
+
+#groupby multiple column
+df_members.groupby('MEMBER_TYPE')[['AGE', 'YEAR']].mean().reset_index()
+
+```
