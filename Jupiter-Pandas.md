@@ -400,3 +400,29 @@ df_members.groupby('MEMBER_TYPE').YEAR.mean().reset_index()
 df_members.groupby('MEMBER_TYPE')[['AGE', 'YEAR']].mean().reset_index()
 
 ```
+
+### Trick to show different aggregation as one table
+#### use pd.merge to achieve this
+
+```python
+df_aggr_members = pd.merge(
+    df_students.groupby('MEMBER_TYPE').AGE.mean().reset_index().rename(columns = {'AGE':'AGE_MEAN'}), 
+    df_students.groupby('MEMBER_TYPE').AGE.median().reset_index().rename(columns = {'AGE':'ageL_median'}), 
+    on = 'YEAR', 
+    how = 'outer', 
+    validate = 'one_to_one')
+```
+
+### Use groupby instead of value_count to have count on multiple columns
+#### Important to remember most functions with groupby ignore missing values
+#### Remember to consider missing value fields by filling up either with zero to include those to calculation
+```python
+# use groupby same as value_count
+df_members.TYPE.value_counts() # same as 
+df_members.groupby('TYPE').size().reset_index() # size function does not require column name, but includes None values
+df_members.groupby('TYPE').AGE.count().reset_index()
+
+# groupby with multiple columns 
+df_members.groupby(['TYPE','STATE']).AGE.count().reset_index()
+
+```
